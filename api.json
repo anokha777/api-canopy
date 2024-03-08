@@ -1,0 +1,171 @@
+{
+  "project": [
+    {
+      "name": "Test",
+      "icon": "DesktopOutlined",
+      "subMenu": [
+        {
+          "name": "Get Users",
+          "icon": "PieChartOutlined",
+          "url": "https://jsonplaceholder.typicode.com/users",
+          "method": "GET",
+          "body": null,
+          "headers": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "Test ggggggg",
+      "icon": "DesktopOutlined",
+      "subMenu": [
+        {
+          "name": "Get Users hhhhhhh",
+          "icon": "PieChartOutlined",
+          "url": "https://jsonplaceholder.typicode.com/users",
+          "method": "GET",
+          "body": null,
+          "headers": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "Test Resources",
+      "icon": "DesktopOutlined",
+      "subMenu": [
+        {
+          "name": "Get Users",
+          "icon": "PieChartOutlined",
+          "url": "https://jsonplaceholder.typicode.com/users",
+          "method": "GET",
+          "body": null,
+          "headers": null,
+          "description": null
+        },
+        {
+          "name": "Post User",
+          "icon": "PieChartOutlined",
+          "url": "https://jsonplaceholder.typicode.com/posts",
+          "method": "POST",
+          "body": {
+            "title": "foo",
+            "body": "bar",
+            "userId": 1
+          },
+          "headers": { "Content-type": "application/json; charset=UTF-8" },
+          "description": null
+        }
+      ]
+    },
+
+    {
+      "name": "Some Test",
+      "icon": "DesktopOutlined",
+      "subMenu": [
+        {
+          "name": "Some Test",
+          "icon": "PieChartOutlined",
+          "url": "https://jsonplaceholder.typicode.com/todos",
+          "method": "GET",
+          "body": null,
+          "headers": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "Github",
+      "icon": "DashboardOutlined",
+      "subMenu": [
+        {
+          "name": "Get Repos",
+          "icon": "PrinterOutlined",
+          "url": "https://api.github.com/users/repos",
+          "method": "GET",
+          "body": null,
+          "headers": null,
+          "description": null
+        },
+        {
+          "name": "Post Repos",
+          "icon": "ContactsOutlined",
+          "url": "https://api.github.com/post/repos",
+          "method": "POST",
+          "body": {
+            "name": "Test_Repo_name"
+          },
+          "headers": null,
+          "description": null
+        },
+        {
+          "name": "Update Repos",
+          "icon": "ContactsOutlined",
+          "url": "https://api.github.com/update/repos",
+          "method": "PUT",
+          "body": {
+            "name": "Test_Repo_name"
+          },
+          "headers": null,
+          "description": null
+        },
+        {
+          "name": "Delete Repos",
+          "icon": "ContactsOutlined",
+          "url": "https://api.github.com/post/repos/2",
+          "method": "DELETE",
+          "body": null,
+          "headers": null,
+          "description": null
+        }
+      ]
+    },
+
+    {
+      "name": "JIRA",
+      "icon": "BookOutlined",
+      "subMenu": [
+        {
+          "name": "Get Jira",
+          "icon": "ContactsOutlined",
+          "url": "https://api.jira.com/users/repos",
+          "method": "GET",
+          "body": null,
+          "headers": null,
+          "description": null
+        },
+        {
+          "name": "Post JIRA",
+          "icon": "ContactsOutlined",
+          "url": "https://api.jira.com/post/repos",
+          "method": "POST",
+          "body": {
+            "name": "Test_JIRA_name"
+          },
+          "headers": null,
+          "description": null
+        },
+        {
+          "name": "Update JIRA",
+          "icon": "ContactsOutlined",
+          "url": "https://api.jira.com/update/repos",
+          "method": "PUT",
+          "body": {
+            "name": "Test_JIRA_name"
+          },
+          "headers": null,
+          "description": null
+        },
+        {
+          "name": "Delete JIRA",
+          "icon": "ContactsOutlined",
+          "url": "https://api.jira.com/delete/repos/2",
+          "method": "DELETE",
+          "body": null,
+          "headers": null,
+          "description": null
+        }
+      ]
+    }
+  ]
+}
