@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Layout, Menu, Spin, theme } from 'antd';
+import { LogoutOutlined } from '@ant-design/icons';
+
 const { Header, Footer, Sider, Content } = Layout;
 
 import {
@@ -11,14 +13,27 @@ import sidebarData from '../api.json';
 import { menuIcon } from "./utils/menu.jsx";
 import { GET, POST } from "./utils/constants.js";
 import axios from "axios";
+import Login from "./Components/Login.jsx";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [data, setData] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const logout = () => {
+    setIsAuthenticated(false);
+    localStorage.setItem('isAuthenticated', false);
+  }
+
+  useEffect(() => {
+    if(localStorage.getItem('isAuthenticated') === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, [])
 
   const handleMenuClick = (menuParams) => {
     setIsLoading(true)
@@ -55,25 +70,43 @@ function App() {
     }
   }
 
+  
+  const headerLogoutMenu = [
+    { key: 'logout', danger: true, label: 'Logout', icon: <LogoutOutlined />, onClick: logout },
+  ];
+
   return (
-    <Layout
+    isAuthenticated ? 
+      <Layout
       style={{
         minHeight: '100vh',
       }}
     >
-      
-        <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+        <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} >
           <div className="demo-logo-vertical" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={menuItems} />
         </Sider>
-        {/* <Spin size="large" spinning={isLoading}> */}
         <Layout>
-          <Header
-            style={{
-              padding: 0,
-              background: colorBgContainer,
-            }}
+        <Header
+          style={{
+            position: 'sticky',
+            top: 0,
+            zIndex: 1,
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            padding: 0,
+            background: colorBgContainer,
+          }}
+        >
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            items={headerLogoutMenu}
+            style={{ flex: 2, minWidth: 0 }}
           />
+        </Header>
+
           <Spin size="large" spinning={isLoading}>
           <Content
             style={{
@@ -102,6 +135,24 @@ function App() {
         </Layout>
       {/* </Spin> */}
     </Layout>
+    :
+    <>
+      <Header
+        style={{
+          padding: 0,
+          background: colorBgContainer,
+        }}
+      />
+      <Login setIsAuthenticated={setIsAuthenticated} />
+      <Footer
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        Sherwin Williams ©{new Date().getFullYear()} Created by <HeartFilled style={{color: 'red'}}/> Vishwanath Kandi
+      </Footer>
+    </>
+    
   );
 }
 
