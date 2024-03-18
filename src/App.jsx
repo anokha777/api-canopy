@@ -102,8 +102,15 @@ function App() {
           <Menu
             theme="dark"
             mode="horizontal"
-            items={headerLogoutMenu}
             style={{ flex: 2, minWidth: 0 }}
+          >
+            {localStorage.getItem('username')}
+          </Menu>
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            items={headerLogoutMenu}
+            style={{  minWidth: 0 }}
           />
         </Header>
 

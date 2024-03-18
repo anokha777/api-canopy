@@ -5,13 +5,14 @@ import { credntials } from '../constants/cred';
 const Login = (props) => {
     
   const onFinish = (values) => {
-    console.log('Success:', values);
     const userStore = credntials.filter(cred => cred.username === values.username && cred.password === values.password);
     if(userStore.length > 0){
       localStorage.setItem('isAuthenticated', true);
+      localStorage.setItem('username', values.username);
       props.setIsAuthenticated(true);
     } else {
-      localStorage.setItem('isAuthenticated', false);
+      localStorage.removeItem('isAuthenticated');
+      localStorage.removeItem('username');
       props.setIsAuthenticated(false);
       notification.error({
         message: 'Login Error',
